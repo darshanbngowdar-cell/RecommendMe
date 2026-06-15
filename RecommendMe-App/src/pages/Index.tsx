@@ -44,15 +44,12 @@ const TRUST_BADGES = [
 const testimonials = [
   {
     quote: "I found a student laptop in one chat without opening 20 tabs.",
-    author: "Aditi, CS Student",
   },
   {
     quote: "The follow-up questions were exactly what I needed to narrow options fast.",
-    author: "Rahul, Product Designer",
   },
   {
     quote: "It feels like a shopping expert that actually listens to constraints.",
-    author: "Neha, Working Professional",
   },
 ];
 
@@ -460,7 +457,7 @@ const Index = () => {
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {testimonials.map((item, index) => (
               <motion.blockquote
-                key={item.author}
+                key={item.quote}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -468,7 +465,6 @@ const Index = () => {
                 className="rounded-2xl border border-border/70 bg-card p-5"
               >
                 <p className="text-sm leading-6 text-foreground">"{item.quote}"</p>
-                <footer className="mt-3 text-xs font-semibold text-muted-foreground">{item.author}</footer>
               </motion.blockquote>
             ))}
           </div>

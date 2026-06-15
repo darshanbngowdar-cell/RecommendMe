@@ -1,6 +1,6 @@
 # RecommendMe — Backend API
 
-The Python FastAPI backend for [RecommendMe](https://github.com/NextGen-AI-Driven-Shopping/recommendme) — a conversational AI product discovery engine.
+The Python FastAPI backend for RecommendMe — a conversational AI product discovery engine.
 
 > Handles everything the user never sees: query understanding, AI orchestration, product fetching, and response assembly.
 
@@ -308,8 +308,8 @@ All errors return a consistent structure:
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/NextGen-AI-Driven-Shopping/recommendme-api.git
-cd recommendme-api
+git clone https://github.com/darshanbngowdar-cell/RecommendMe.git
+cd RecommendMe/RecommendMe-API
 
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
@@ -448,7 +448,7 @@ Add all environment variables under **Environment** in the Render dashboard.
 
 ## Key Design Decisions
 
-**`app/` package over root-level structure.** All application code lives inside `app/` to create a clean boundary between the running application, tests, and scripts. Avoids import collisions, simplifies the Dockerfile, and makes team ownership boundaries obvious.
+**`app/` package over root-level structure.** All application code lives inside `app/` to create a clean boundary between the running application, tests, and scripts. Avoids import collisions and simplifies the Dockerfile.
 
 **Stateless backend.** No database in MVP. Session state lives in-memory as a Python dictionary keyed by `session_id`. Keeps deployment simple and enables horizontal scaling. A database becomes relevant in v2 when user accounts and history are added.
 
@@ -488,35 +488,12 @@ httpx             — TestClient for FastAPI route testing
 ruff              — Linting and formatting
 ```
 
----
-
-## Team Ownership
-
-| Member | Owns |
-|--------|------|
-| Project Lead | `main.py`, `.github/workflows/`, `Dockerfile`, `docker-compose.yml` — overall system integration, system architecture decisions, SDLC planning and supervision, project maintenance, GitHub organization management, repository structure management, CI/CD pipeline monitoring, code reviews and quality enforcement, partial testing coordination, feature planning and enhancements, dependency and version management, project monitoring and progress tracking, release planning and versioning, deployment oversight, technical decision making, issue prioritization and bug triage, documentation oversight, performance and scalability review |
-| API Layer | `app/api/` — all files |
-| Vagueness Service | `app/services/vagueness.py`, `app/prompts/vagueness_check.py` |
-| Recommendation Service | `app/services/recommender.py`, `app/prompts/intent_extraction.py` |
-| Ranking Service | `app/services/ranking.py`, `app/prompts/product_ranking.py` |
-| Product & Data Service | `app/services/products.py`, `app/utils/formatters.py` |
-| Prompt Engineer | `app/prompts/` — all files, `scripts/test_prompt.py` |
-| Core & Config | `app/core/` — all files |
-| Models & Validation | `app/models/`, `app/utils/validators.py`, `app/utils/session.py` |
-| Cache & Performance | `app/services/cache.py` |
-| Testing | `tests/` — all files, `requirements-dev.txt` |
-
-
----
-
 ## Contributing
 
-Read the org-wide [CONTRIBUTING.md](https://github.com/NextGen-AI-Driven-Shopping/.github/blob/main/CONTRIBUTING.md) before submitting a PR.
-
-For backend-specific work — follow PEP 8, use type hints on all functions, keep each service focused on one job, and write tests for anything you add or change.
+For backend-specific work, follow PEP 8, use type hints on all functions, keep each service focused on one job, and write tests for anything you add or change.
 
 ---
 
 ## License
 
-MIT © [NextGen AI-Driven Shopping](https://github.com/NextGen-AI-Driven-Shopping)
+MIT
